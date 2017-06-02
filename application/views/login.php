@@ -14,16 +14,16 @@
                 <?php echo validation_errors(); ?>
                 <?php echo form_open('login/process') ?>
 
-                <?php if(! is_null($msg)) echo "{$msg}<p>";?>
-                <div class="form-group">
-                    <label for="username">Логин</label>
-                    <input type="text" class="form-control" name="name" placeholder="имя">
-                </div>
-                <div class="form-group">
-                    <label for="password">Пароль</label>
-                    <input type="password" class="form-control" name="password" placeholder="пароль">
-                </div>
-                <input type="submit" value="Вход" class="btn btn-success" placeholder="Отправить" name="login_button">
+                    <?php if(! is_null($msg)) echo "{$msg}<p>";?>
+                    <div class="form-group">
+                        <label for="username">Логин</label>
+                        <input type="text" class="form-control" name="name" placeholder="имя">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" class="form-control" name="password" placeholder="пароль">
+                    </div>
+                    <input type="submit" value="Вход" class="btn btn-success" placeholder="Отправить" name="login_button">
                 </form>
             </div>
         </div>
