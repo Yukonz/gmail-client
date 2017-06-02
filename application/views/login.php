@@ -13,7 +13,6 @@
 
                 <?php echo validation_errors(); ?>
                 <?php echo form_open('login/process') ?>
-
                     <?php if(! is_null($msg)) echo "{$msg}<p>";?>
                     <div class="form-group">
                         <label for="username">Логин</label>

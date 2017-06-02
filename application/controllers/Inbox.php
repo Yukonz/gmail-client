@@ -84,9 +84,3 @@ class Inbox extends CI_Controller
 
 
 }
-
-?>
-
-
-
-
