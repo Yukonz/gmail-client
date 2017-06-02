@@ -16,9 +16,8 @@ class Login_model extends CI_Model
         imap_errors();
         imap_alerts();
 
-        if ($connect == false)
-        {
-           return false;
+        if ($connect == false) {
+            return false;
         }
 
         return true;
@@ -27,8 +26,7 @@ class Login_model extends CI_Model
     public function check_account()
     {
         $query = $this->db->get('account');
-        if($query->num_rows() == 1)
-        {
+        if ($query->num_rows() == 1) {
             return true;
         }
 
@@ -45,9 +43,8 @@ class Login_model extends CI_Model
 
         $query = $this->db->get('account');
 
-        if($query->num_rows() == 1)
-        {
-            $this->db->replace('account', $data  );
+        if ($query->num_rows() == 1) {
+            $this->db->replace('account', $data);
 
             return false;
         }
