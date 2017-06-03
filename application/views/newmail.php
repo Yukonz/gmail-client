@@ -25,16 +25,3 @@
 
     </form>
 </div>
-
-<style>
-
-    #newmail {
-        display: inline-block;
-        width: 100%;
-        height: 500px;
-        margin-left: 30px;
-        margin-right: 30px;
-        margin-top: 45px
-    }
-
-</style>

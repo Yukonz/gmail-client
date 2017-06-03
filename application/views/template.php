@@ -2,7 +2,8 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
 <head >
     <meta http-equiv='content-type' content='text/html charset=utf-8' />
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url("assets/css/styles.css"); ?>" />
     <title> <?php echo $title; ?> </title>
 </head>
 <body>
@@ -21,37 +22,3 @@
 
         </table>
     </div>
-
-    <style>
-
-        body {
-            background-color: white !important
-        }
-
-        #wrapper {
-            display: flex;
-            height: 100%
-        }
-
-        #login {
-            position: absolute;
-            display: inline-block;
-            right: 30px;
-            top: 3px;
-            font-size: 16px
-        }
-
-        #folders {
-            display: inline-block;
-            width: 150px;
-            min-width: 150px;
-            min-height: 100%;
-            margin-top: 45px;
-            margin-left: 15px
-        }
-
-        .table-folders {
-            margin-top: 15px
-        }
-
-    </style>

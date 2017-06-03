@@ -1,0 +1,93 @@
+#login-wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+#login-form {
+    width: 550px;
+    display: inline-block
+}
+
+body {
+    background-color: white !important
+}
+
+#wrapper {
+    display: flex;
+    height: 100%
+}
+
+#login {
+    position: absolute;
+    display: inline-block;
+    right: 30px;
+    top: 3px;
+    font-size: 16px
+}
+
+#folders {
+    display: inline-block;
+    width: 150px;
+    min-width: 150px;
+    min-height: 100%;
+    margin-top: 60px;
+    margin-left: 15px;
+}
+
+.table-folders {
+    margin-top: 10px;
+}
+
+#mails-folder {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+    font-size: 15px !important;
+}
+
+.mails-header {
+    font-size: 18px
+}
+
+.mails-select {
+    width: 100px;
+    text-align: center
+}
+
+.mails-number {
+    width: 50px;
+    text-align: center
+}
+
+.mails-from {
+    width: 300px
+}
+
+.mails-date {
+    width: 300px
+}
+
+#newmail {
+    display: inline-block;
+    width: 100%;
+    height: 500px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 65px
+}
+
+#readmail {
+    display: inline-block;
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 65px;
+    font-size: 15px
+}
+

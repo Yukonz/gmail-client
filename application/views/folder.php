@@ -33,39 +33,3 @@
         </table>
     </form>
 </div>
-
-
-<style>
-
-    #mails-folder {
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        margin-left: 30px;
-        margin-right: 30px
-    }
-
-    .mails-header {
-        font-size: 18px
-    }
-
-    .mails-select {
-        width: 100px;
-        text-align: center
-    }
-
-    .mails-number {
-        width: 50px;
-        text-align: center
-    }
-
-    .mails-from {
-        width: 300px
-    }
-
-    .mails-date {
-        width: 300px
-    }
-
-
-</style>

@@ -12,15 +12,3 @@
     ?>
 
 </div>
-
-<style>
-
-    #readmail {
-        display: inline-block;
-        width: 100%;
-        margin-left: 30px;
-        margin-right: 30px;
-        margin-top: 45px
-    }
-
-</style>

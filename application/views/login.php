@@ -2,7 +2,8 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
     <head >
         <meta http-equiv='content-type' content='text/html charset=utf-8' />
-        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous'>
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" />
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/styles.css"); ?>" />
         <title> Welcome! </title>
     </head>
     <body>
@@ -30,21 +31,3 @@
         </div>
     </body>
 </html>
-
-
-<style>
-
-    #login-wrapper {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center
-    }
-
-    #login-form {
-        width: 500px;
-        display: inline-block
-    }
-
-</style>
