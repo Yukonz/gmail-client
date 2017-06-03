@@ -2,10 +2,13 @@
 
 class Inbox extends CI_Controller
 {
+    protected $foldersList = [];
+
     function __construct()
     {
         parent::__construct();
         $this->load->model('inbox_model');
+        $this->foldersList = $this->inbox_model->get_folders();
     }
 
     public function index()
@@ -15,7 +18,7 @@ class Inbox extends CI_Controller
 
     public function view_folder($folderName)
     {
-        $data['folders'] = $this->inbox_model->get_folders();
+        $data['folders'] = $this->foldersList;
         $data['mails'] = $this->inbox_model->get_mails_by_folder($folderName);
         $data['folder'] = $folderName;
         $data['title'] = urldecode($folderName);
@@ -27,7 +30,7 @@ class Inbox extends CI_Controller
 
     public function view_mail($folderName, $mailNumber)
     {
-        $data['folders'] = $this->inbox_model->get_folders();
+        $data['folders'] = $this->foldersList;
         $data['mail'] = $this->inbox_model->get_mail_by_number($mailNumber, $folderName);
         $data['folder'] = $folderName;
         $data['title'] = "Все письма";
@@ -39,7 +42,7 @@ class Inbox extends CI_Controller
 
     public function new_mail()
     {
-        $data['folders'] = $this->inbox_model->get_folders();
+        $data['folders'] = $this->foldersList;
         $data['title'] = "Новое письмо";
 
         $this->load->view('template', $data);
@@ -53,7 +56,7 @@ class Inbox extends CI_Controller
         $this->form_validation->set_rules('message', 'message', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $data['folders'] = $this->inbox_model->get_folders();
+            $data['folders'] = $this->foldersList;
             $data['title'] = "Новое письмо";
 
             $this->load->view('template', $data);
