@@ -12,11 +12,14 @@ class Inbox_model extends CI_Model
 
     public function __construct()
     {
-        $this->load->database();
-        $query = $this->db->get('account');
-        $userData = $query->result_array();
-        $this->username = $userData[0]['name'];
-        $this->password = $userData[0]['password'];
+        $this->username = $this->session->userdata('username');
+        $this->password = $this->session->userdata('password');
+
+//        $this->load->database();
+//        $query = $this->db->get('account');
+//        $userData = $query->result_array();
+//        $this->username = $userData[0]['name'];
+//        $this->password = $userData[0]['password'];
     }
 
     public function get_folders()

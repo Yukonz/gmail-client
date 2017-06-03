@@ -7,6 +7,11 @@ class Inbox extends CI_Controller
     function __construct()
     {
         parent::__construct();
+
+        if(!($this->session->has_userdata('validated'))){
+            redirect('login');
+        }
+
         $this->load->model('inbox_model');
         $this->foldersList = $this->inbox_model->get_folders();
     }

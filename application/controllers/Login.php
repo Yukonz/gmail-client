@@ -17,8 +17,8 @@ class Login extends CI_Controller
             $data['msg'] = NULL;
             $this->load->view('login.php', $data);
         } else {
-            $password = $this->input->post('password');
-            $username = $this->input->post('name');
+            $username = $this->security->xss_clean($this->input->post('name'));
+            $password = $this->security->xss_clean($this->input->post('password'));
 
             if (!strpos($username, '@gmail.com')) {
                 $username .= "@gmail.com";
@@ -27,7 +27,12 @@ class Login extends CI_Controller
             $connect = $this->login_model->check_connection($username, $password);
 
             if ($connect) {
-                $this->login_model->add_account_data($username, $password);
+                $data = array(
+                    'password' => $password,
+                    'username' => $username,
+                    'validated' => true
+                );
+                $this->session->set_userdata($data);
                 redirect('inbox/INBOX');
             } else {
                 $data['msg'] = "Проверьте введенные данные!";
@@ -36,21 +41,21 @@ class Login extends CI_Controller
         }
     }
 
+
+
     public function index()
     {
-        $accountExists = $this->login_model->check_account();
-        $data['msg'] = NULL;
-
-        if ($accountExists) {
+        if($this->session->has_userdata('validated')){
             redirect('inbox/INBOX');
-        } else {
-            $this->load->view('login.php', $data);
         }
 
+        $data['msg'] = NULL;
+        $this->load->view('login.php', $data);
     }
 
     public function change_user()
     {
+        $this->session->sess_destroy();
         $data['msg'] = NULL;
         $this->load->view('login.php', $data);
     }

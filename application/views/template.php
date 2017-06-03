@@ -16,5 +16,5 @@
         <?php endforeach; ?>
 
     </table>
-    <a href="/login/change_user"><button type="button" class="btn btn-primary">Параметры</button></a>
+    <a href="/login/change_user"><button type="button" class="btn btn-primary">Выход</button></a>
 </div>
