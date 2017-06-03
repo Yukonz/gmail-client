@@ -30,9 +30,16 @@ class Login extends CI_Controller
                 $data = array(
                     'password' => $password,
                     'username' => $username,
-                    'validated' => true
+                    'validated' => true,
+                    'folders' => []
                 );
                 $this->session->set_userdata($data);
+
+                $this->load->model('inbox_model');
+                $data['folders'] = $this->inbox_model->get_folders();
+
+                $this->session->set_userdata($data);
+
                 redirect('inbox/INBOX');
             } else {
                 $data['msg'] = "Проверьте введенные данные!";

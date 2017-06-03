@@ -14,12 +14,6 @@ class Inbox_model extends CI_Model
     {
         $this->username = $this->session->userdata('username');
         $this->password = $this->session->userdata('password');
-
-//        $this->load->database();
-//        $query = $this->db->get('account');
-//        $userData = $query->result_array();
-//        $this->username = $userData[0]['name'];
-//        $this->password = $userData[0]['password'];
     }
 
     public function get_folders()
@@ -57,8 +51,6 @@ class Inbox_model extends CI_Model
         $mailDate = $header->Date;
         $mailAddress = $header->fromaddress;
         $mailToAddress = $header->from[0]->mailbox . "@" . $header->from[0]->host;
-//
-//        echo "From: {$mailToAddress}<br>";
 
         $mailSubjectDecoded = $this->decode_header_data($mailSubject);
         $mailAddressDecoded = $this->decode_header_data($mailAddress);
