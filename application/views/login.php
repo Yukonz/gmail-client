@@ -3,6 +3,7 @@
     <head >
         <meta http-equiv='content-type' content='text/html charset=utf-8' />
         <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" />
+        <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap-panel.css"); ?>" />
         <link rel="stylesheet" href="<?php echo base_url("assets/css/styles.css"); ?>" />
         <title> Welcome! </title>
     </head>
@@ -15,8 +16,6 @@
                 <?php echo validation_errors(); ?>
                 <?php echo form_open('login/process') ?>
 
-                <?php if(! is_null($msg)) echo "{$msg}<p>";?>
-
                     <div class='form-group'>
                         <label for='username'>Логин</label>
                         <input type='text' class='form-control' name='name' placeholder='имя'>
@@ -27,6 +26,19 @@
                     </div>
                     <input type='submit' value='Вход' class='btn btn-success' placeholder='Отправить' name='login_button'>
                 </form>
+
+                <?php
+                if(! is_null($msg)) echo "
+                     <br>
+                     <div class='panel panel-warning'>
+                         <div class='panel-heading'>{$msg}</div>
+                         <div class='panel-body'>
+                            Также убедитесь, что в параметрах вашего аккаунта gmail 
+                            разрешен доступ для непроверенных приложений.
+                         </div>
+                     </div>";
+                ?>
+
             </div>
         </div>
     </body>

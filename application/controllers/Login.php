@@ -42,7 +42,7 @@ class Login extends CI_Controller
 
                 redirect('inbox/INBOX');
             } else {
-                $data['msg'] = "Проверьте введенные данные!";
+                $data['msg'] = "Проверьте логин и пароль!";
                 $this->load->view('login.php', $data);
             }
         }
