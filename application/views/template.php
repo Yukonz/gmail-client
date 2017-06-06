@@ -2,8 +2,9 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
 <head >
     <meta http-equiv='content-type' content='text/html charset=utf-8' />
-    <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" />
-    <link rel="stylesheet" href="<?php echo base_url("assets/css/styles.css"); ?>" />
+    <link rel='stylesheet' href='<?php echo base_url('assets/css/bootstrap.min.css'); ?>' />
+    <link rel='stylesheet' href='<?php echo base_url('assets/css/styles.css'); ?>' />
+    <script type='text/javascript' src='<?php echo base_url('assets/js/jquery-3.2.1.min.js'); ?>'></script>
     <title> <?php echo $title; ?> </title>
 </head>
 <body>
