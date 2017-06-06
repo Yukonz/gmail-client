@@ -17,64 +17,60 @@ class Inbox extends CI_Controller
 
     public function index()
     {
-        redirect('inbox/INBOX');
+        $data['folders'] = $this->session->userdata['folders'];
+        $data['title'] = 'Gmail-client';
+        $this->load->view('template', $data);
     }
 
-    public function view_folder($folderName)
+    public function view_folder()
     {
-        $data['folders'] = $this->session->userdata['folders'];
+        $folderName = $_POST['folder'];
+        if ($folderName == NULL) $folderName = 'INBOX';
+
+//        $data['folders'] = $this->session->userdata['folders'];
         $data['mails'] = $this->inbox_model->get_mails_by_folder($folderName);
         $data['folder'] = $folderName;
         $data['title'] = urldecode($folderName);
 
-        $this->load->view('template', $data);
+//        $this->load->view('template', $data);
         $this->load->view('folder', $data);
-        $this->load->view('footer');
+//        $this->load->view('footer');
     }
 
-    public function view_mail($folderName, $mailNumber)
+    public function view_mail()
     {
-        $data['folders'] = $this->session->userdata['folders'];
+        $folderName = $_POST['folder'];
+        $mailNumber = $_POST['number'];
+
+//        $data['folders'] = $this->session->userdata['folders'];
         $data['mail'] = $this->inbox_model->get_mail_by_number($mailNumber, $folderName);
         $data['folder'] = $folderName;
         $data['title'] = "Все письма";
 
-        $this->load->view('template', $data);
+//        $this->load->view('template', $data);
         $this->load->view('readmail', $data);
-        $this->load->view('footer');
+//        $this->load->view('footer');
     }
 
     public function new_mail()
     {
-        $data['folders'] = $this->session->userdata['folders'];
+//        $data['folders'] = $this->session->userdata['folders'];
         $data['title'] = "Новое письмо";
 
-        $this->load->view('template', $data);
+//        $this->load->view('template', $data);
         $this->load->view('newmail');
-        $this->load->view('footer');
+//        $this->load->view('footer');
     }
 
     public function send_mail()
     {
-        $this->form_validation->set_rules('email', 'e-mail', 'required');
-        $this->form_validation->set_rules('message', 'message', 'required');
+        $newMailAddress = $this->input->post('email');
+        $newMailHeader = $this->input->post('title');
+        $newMailBody = $this->input->post('message');
 
-        if ($this->form_validation->run() === FALSE) {
-            $data['folders'] = $this->session->userdata['folders'];
-            $data['title'] = "Новое письмо";
+        $this->inbox_model->send_mail($newMailAddress, $newMailHeader, $newMailBody);
 
-            $this->load->view('template', $data);
-            $this->load->view('newmail');
-            $this->load->view('footer');
-        } else {
-            $newMailAddress = $this->input->post('email');
-            $newMailHeader = $this->input->post('title');
-            $newMailBody = $this->input->post('message');
-
-            $this->inbox_model->send_mail($newMailAddress, $newMailHeader, $newMailBody);
-
-            redirect('inbox/Отправленные');
-        }
+        $this->load->view('inbox/отправленные');
     }
 
     public function delete($folderName)

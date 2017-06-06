@@ -40,7 +40,7 @@ class Login extends CI_Controller
 
                 $this->session->set_userdata($data);
 
-                redirect('inbox/INBOX');
+                redirect('inbox');
             } else {
                 $data['msg'] = "Проверьте логин и пароль!";
                 $this->load->view('login.php', $data);
@@ -53,7 +53,7 @@ class Login extends CI_Controller
     public function index()
     {
         if($this->session->has_userdata('validated')){
-            redirect('inbox/INBOX');
+            redirect('inbox');
         }
 
         $data['msg'] = NULL;

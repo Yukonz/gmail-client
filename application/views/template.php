@@ -5,21 +5,28 @@
     <link rel='stylesheet' href='<?php echo base_url('assets/css/bootstrap.min.css'); ?>' />
     <link rel='stylesheet' href='<?php echo base_url('assets/css/styles.css'); ?>' />
     <script type='text/javascript' src='<?php echo base_url('assets/js/jquery-3.2.1.min.js'); ?>'></script>
+    <script type='text/javascript' src='<?php echo base_url('assets/js/script.js'); ?>'></script>
     <title> <?php echo $title; ?> </title>
 </head>
-<body>
-<div id='wrapper'>
-    <div id='login'>
-        <?php echo $this->session->userdata('username') ?>
-        <a href='/login/change_user'><button type='button' class='btn btn-primary'>Выход</button></a>
-    </div>
-    <div id='folders'>
-        <a href='/newmail/'><button type='button' class='btn btn-success'>НАПИСАТЬ</button></a>
-        <table class='table table-hover table-bordered table-folders'>
+    <body>
+        <div id='wrapper'>
+            <div id='login'>
+                <?php echo $this->session->userdata('username') ?>
+                <a href='/login/change_user'><button id='logout' type='button' class='btn btn-primary'>Выход</button></a>
+            </div>
+            <div id='folders'>
+                <a href='/newmail/'><button id='new_mail' type='button' class='btn btn-success'>НАПИСАТЬ</button></a>
+                <table class='table table-hover table-bordered table-folders'>
 
-            <?php foreach ($folders as $folder): ?>
-                <tr><td><a href='/inbox/<?php echo $folder; ?>'><?php echo $folder; ?></a></td></tr>
-            <?php endforeach; ?>
+                    <?php foreach ($folders as $folder): ?>
+                        <tr><td><a class='folder' href='<?php echo $folder; ?>'><?php echo $folder; ?></a></td></tr>
+                    <?php endforeach; ?>
 
-        </table>
-    </div>
+                </table>
+            </div>
+            <div id='display'>
+
+            </div>
+        </div>
+    </body>
+</html>
